@@ -1,0 +1,144 @@
+{
+  "fields": [
+    {
+      "name": "product_id",
+      "type": "string",
+      "description": "SHEIN product ID (goods ID). Unique per row. The same ID is the same product in every country."
+    },
+    {
+      "name": "sku",
+      "type": "string",
+      "description": "SHEIN SKU code of this colour variant."
+    },
+    {
+      "name": "spu",
+      "type": "string",
+      "description": "SHEIN SPU code shared by all colour variants of a product."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "description": "Product title as shown to shoppers."
+    },
+    {
+      "name": "product_url",
+      "type": "string",
+      "description": "Product page on the country's SHEIN storefront."
+    },
+    {
+      "name": "country",
+      "type": "string",
+      "description": "ISO country code of the storefront (GB = United Kingdom)."
+    },
+    {
+      "name": "currency",
+      "type": "string",
+      "description": "ISO currency of the prices."
+    },
+    {
+      "name": "price",
+      "type": "number",
+      "description": "Selling price in local currency, as shown to shoppers (UK: incl. VAT)."
+    },
+    {
+      "name": "price_display",
+      "type": "string",
+      "description": "Selling price as displayed, with currency symbol."
+    },
+    {
+      "name": "original_price",
+      "type": "number",
+      "description": "Crossed-out (reference) price in local currency."
+    },
+    {
+      "name": "original_price_display",
+      "type": "string",
+      "description": "Crossed-out price as displayed."
+    },
+    {
+      "name": "discount_pct",
+      "type": "number",
+      "description": "1 - price / original_price, rounded to 4 decimals; 0 when there is no crossed-out price above the price."
+    },
+    {
+      "name": "price_usd",
+      "type": "number",
+      "description": "Selling price converted to US dollars."
+    },
+    {
+      "name": "top_category",
+      "type": "string",
+      "description": "Top-level category name, e.g. Women Apparel."
+    },
+    {
+      "name": "category",
+      "type": "string",
+      "description": "Leaf category name, e.g. Women Mini Dresses."
+    },
+    {
+      "name": "category_path",
+      "type": "string",
+      "description": "Full category path from top level to leaf, separated by ' > '."
+    },
+    {
+      "name": "category_id",
+      "type": "string",
+      "description": "Leaf category ID."
+    },
+    {
+      "name": "in_stock",
+      "type": "boolean",
+      "description": "False when the product is shown as sold out."
+    },
+    {
+      "name": "stock_indicator",
+      "type": "integer",
+      "description": "Stock as shown to shoppers: exact count below 10, 999 = 10 or more."
+    },
+    {
+      "name": "review_count",
+      "type": "integer",
+      "description": "Number of reviews; 1001 means 1,000 or more."
+    },
+    {
+      "name": "rating",
+      "type": "number",
+      "description": "Average star rating (1\u20135); empty when the product has no reviews."
+    },
+    {
+      "name": "color_count",
+      "type": "integer",
+      "description": "Number of colour variants offered."
+    },
+    {
+      "name": "image_url",
+      "type": "string",
+      "description": "Main product image URL."
+    },
+    {
+      "name": "image_urls",
+      "type": "list of strings",
+      "description": "All product image URLs (in CSV: separated by '|')."
+    },
+    {
+      "name": "image_count",
+      "type": "integer",
+      "description": "Number of product images."
+    },
+    {
+      "name": "seller_store_id",
+      "type": "string",
+      "description": "ID of the seller storefront that lists the product."
+    },
+    {
+      "name": "created_date",
+      "type": "date",
+      "description": "Date the product was created."
+    },
+    {
+      "name": "collected_at",
+      "type": "timestamp",
+      "description": "When this record was collected (UTC)."
+    }
+  ]
+}

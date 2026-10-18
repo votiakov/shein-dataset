@@ -9,6 +9,8 @@ store and creation date.
 **[votiakov.com/shein-data](https://votiakov.com/shein-data/)**. Free report on what the data shows:
 [SHEIN by the numbers, UK, October 2026 (PDF)](https://votiakov.com/reports/shein-by-the-numbers-uk-2026-10.pdf).
 
+Also on [Hugging Face](https://huggingface.co/datasets/votiakov/shein-uk-products-sample) and [Kaggle](https://www.kaggle.com/datasets/votiakov/shein-uk-products-sample).
+
 ## Files
 
 | File | Format | Rows |

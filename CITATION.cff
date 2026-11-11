@@ -1,13 +1,13 @@
 cff-version: 1.2.0
 message: "If you use this dataset, please cite it as below."
 type: dataset
-title: "SHEIN UK Product Catalogue: Free Sample (10,000 products, October 2026)"
-abstract: "10,000 random products from SHEIN's United Kingdom catalogue snapshot of 17 October 2026 (5,154,854 products): prices in GBP, crossed-out prices, discounts, category paths, stock, reviews, ratings, colours, image URLs, seller store and creation date."
+title: "SHEIN Product Catalogue: Free Samples for the UK, Germany and France (10,000 products each)"
+abstract: "10,000 random products per country from full snapshots of SHEIN's United Kingdom (17 October 2026, 5,154,854 products), Germany (10 November 2026, 3,123,472 products) and France (10 November 2026, 2,724,075 products) catalogues: local prices, crossed-out prices, discounts, category paths, reviews, ratings, colours, image URLs, seller store and creation date."
 authors:
   - family-names: Votiakov
     given-names: Andrii
-date-released: 2026-10-18
-version: "2026.10"
+date-released: 2026-11-11
+version: "2026.11"
 url: "https://votiakov.com/shein-data/"
 repository-code: "https://github.com/votiakov/shein-dataset"
 license-url: "https://github.com/votiakov/shein-dataset#terms"

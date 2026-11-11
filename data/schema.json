@@ -28,7 +28,7 @@
     {
       "name": "country",
       "type": "string",
-      "description": "ISO country code of the storefront (GB = United Kingdom)."
+      "description": "ISO country code of the storefront, e.g. GB = United Kingdom, DE = Germany."
     },
     {
       "name": "currency",
@@ -38,7 +38,7 @@
     {
       "name": "price",
       "type": "number",
-      "description": "Selling price in local currency, as shown to shoppers (UK: incl. VAT)."
+      "description": "Selling price in local currency, as shown to shoppers (UK and EU: incl. VAT)."
     },
     {
       "name": "price_display",
@@ -93,7 +93,7 @@
     {
       "name": "stock_indicator",
       "type": "integer",
-      "description": "Stock as shown to shoppers: exact count below 10, 999 = 10 or more."
+      "description": "Stock as shown to shoppers: exact count below 10, 999 = 10 or more; empty when not reported."
     },
     {
       "name": "review_count",
@@ -138,7 +138,7 @@
     {
       "name": "collected_at",
       "type": "timestamp",
-      "description": "When this record was collected (UTC)."
+      "description": "When this record was collected, with its UTC offset."
     }
   ]
 }

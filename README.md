@@ -1,4 +1,4 @@
-# SHEIN dataset: free samples for the UK, Germany and France (10,000 products each)
+# SHEIN dataset: free samples for the US, UK, Germany and France (10,000 products each)
 
 Free samples of **SHEIN product data**: 10,000 random products per country, each taken from a full snapshot of
 that country's catalogue. Every product has its local price, crossed-out price and discount, full category path,
@@ -6,6 +6,7 @@ reviews and rating, colours, image URLs, seller store and creation date.
 
 | Country | Snapshot | Products in the full catalogue | Currency |
 |---|---|---|---|
+| United States | 11 November 2026 | 21,389,348 | USD |
 | United Kingdom | 17 October 2026 | 5,154,854 | GBP |
 | Germany | 10 November 2026 | 3,123,472 | EUR |
 | France | 10 November 2026 | 2,724,075 | EUR |
@@ -14,12 +15,14 @@ reviews and rating, colours, image URLs, seller store and creation date.
 **[votiakov.com/shein-data](https://votiakov.com/shein-data/)**. Free report on what the data shows:
 [SHEIN by the numbers, UK, October 2026 (PDF)](https://votiakov.com/reports/shein-by-the-numbers-uk-2026-10.pdf).
 
-Also on Hugging Face ([UK](https://huggingface.co/datasets/votiakov/shein-uk-products-sample), [Germany](https://huggingface.co/datasets/votiakov/shein-de-products-sample), [France](https://huggingface.co/datasets/votiakov/shein-fr-products-sample)) and Kaggle ([UK](https://www.kaggle.com/datasets/votiakov/shein-uk-products-sample), [Germany](https://www.kaggle.com/datasets/votiakov/shein-de-products-sample), [France](https://www.kaggle.com/datasets/votiakov/shein-fr-products-sample)).
+Also on Hugging Face ([US](https://huggingface.co/datasets/votiakov/shein-us-products-sample), [UK](https://huggingface.co/datasets/votiakov/shein-uk-products-sample), [Germany](https://huggingface.co/datasets/votiakov/shein-de-products-sample), [France](https://huggingface.co/datasets/votiakov/shein-fr-products-sample)) and Kaggle ([US](https://www.kaggle.com/datasets/votiakov/shein-us-products-sample), [UK](https://www.kaggle.com/datasets/votiakov/shein-uk-products-sample), [Germany](https://www.kaggle.com/datasets/votiakov/shein-de-products-sample), [France](https://www.kaggle.com/datasets/votiakov/shein-fr-products-sample)).
 
 ## Files
 
 | File | Format | Rows |
 |---|---|---|
+| [`data/shein_us_sample_10k_2026-11-11.csv`](data/shein_us_sample_10k_2026-11-11.csv) | CSV (UTF-8, header; image URLs separated by `\|`) | 10,000 |
+| [`data/shein_us_sample_10k_2026-11-11.parquet`](data/shein_us_sample_10k_2026-11-11.parquet) | Parquet (zstd) | 10,000 |
 | [`data/shein_gb_sample_10k_2026-10-17.csv`](data/shein_gb_sample_10k_2026-10-17.csv) | CSV (UTF-8, header; image URLs separated by `\|`) | 10,000 |
 | [`data/shein_gb_sample_10k_2026-10-17.parquet`](data/shein_gb_sample_10k_2026-10-17.parquet) | Parquet (zstd) | 10,000 |
 | [`data/shein_de_sample_10k_2026-11-10.csv`](data/shein_de_sample_10k_2026-11-10.csv) | CSV (UTF-8, header; image URLs separated by `\|`) | 10,000 |
@@ -29,6 +32,16 @@ Also on Hugging Face ([UK](https://huggingface.co/datasets/votiakov/shein-uk-pro
 | [`data/schema.json`](data/schema.json) | Field names, types and descriptions | |
 
 ## Preview
+
+United States:
+
+| Title | Price | Was | Off | Category | Reviews | Rating |
+|---|---|---|---|---|---|---|
+| Veilorie Plus Size Women Spring/Autumn Casual Solid Color Hi… | $25.07 | $37.19 | 33% | Plus Size Co-Ords | 37 | 4.62 |
+| 1 Pair Adjustable Silicone Swim Training Hand Paddles, Unise… | $4.37 | $7.50 | 42% | Swimmer Fins | 44 | 4.84 |
+| Plus Size Women Casual Round Neck Short Sleeve Cute Dachshun… | $6.63 | $13.28 | 50% | Women Tops | 161 | 4.60 |
+| Woke Up Sexy As Hell Again T-Shirt Funny Saying Sarcastic T-… | $4.88 | $5.98 | 18% | Women T-Shirts | 900 | 4.76 |
+| 1pc Elegant Style Oversized Rhinestone Bow Design Handmade F… | $4.60 | $5.80 | 21% | Women Brooch, Lapel Pin & Scarf Ring | 37 | 4.89 |
 
 United Kingdom:
 
@@ -74,6 +87,12 @@ SELECT de.product_id, de.title, de.price AS price_de, fr.price AS price_fr
 FROM 'data/shein_de_sample_10k_2026-11-10.parquet' de
 JOIN 'data/shein_fr_sample_10k_2026-11-10.parquet' fr USING (product_id)
 ORDER BY abs(de.price - fr.price) DESC;
+
+-- The same product in the US and Germany, both in US dollars. The two samples share only a few products;
+-- the full datasets share about 1.9 million.
+SELECT us.product_id, us.title, us.price AS price_us_usd, de.price_usd AS price_de_usd
+FROM 'data/shein_us_sample_10k_2026-11-11.parquet' us
+JOIN 'data/shein_de_sample_10k_2026-11-10.parquet' de USING (product_id);
 ```
 
 ## Fields
@@ -87,7 +106,7 @@ ORDER BY abs(de.price - fr.price) DESC;
 | `product_url` | string | Product page on the country's SHEIN storefront. |
 | `country` | string | ISO country code of the storefront, e.g. GB = United Kingdom, DE = Germany. |
 | `currency` | string | ISO currency of the prices. |
-| `price` | number | Selling price in local currency, as shown to shoppers (UK and EU: incl. VAT). |
+| `price` | number | Selling price in local currency, as shown to shoppers (UK and EU: incl. VAT; US: before sales tax). |
 | `price_display` | string | Selling price as displayed, with currency symbol. |
 | `original_price` | number | Crossed-out (reference) price in local currency. |
 | `original_price_display` | string | Crossed-out price as displayed. |
@@ -112,7 +131,8 @@ ORDER BY abs(de.price - fr.price) DESC;
 ## Notes
 
 - One row per product (colour variant). `product_id` is the same product in every SHEIN country, so country datasets join on it.
-- Prices are what shoppers in each country see, in local currency including VAT.
+- Prices are what shoppers in each country see, in local currency: UK and EU prices include VAT, US prices are before sales tax.
+- `stock_indicator` is empty for every product in the US snapshot.
 - `review_count` is capped at 1001, which means 1,000 or more. `stock_indicator` is exact below 10; 999 means 10 or more; it is empty when not reported.
 - `rating` is empty for products without reviews.
 - Image URLs link to SHEIN's image CDN. No image files are included.

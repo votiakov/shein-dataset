@@ -38,7 +38,7 @@
     {
       "name": "price",
       "type": "number",
-      "description": "Selling price in local currency, as shown to shoppers (UK and EU: incl. VAT)."
+      "description": "Selling price in local currency, as shown to shoppers (UK and EU: incl. VAT; US: before sales tax)."
     },
     {
       "name": "price_display",

@@ -12,10 +12,12 @@ reviews and rating, colours, image URLs, seller store and creation date.
 | France | 10 November 2026 | 2,724,075 | EUR |
 
 **Full catalogues** and **other SHEIN countries**:
-**[votiakov.com/shein-data](https://votiakov.com/shein-data/)**. Free report on what the data shows:
-[SHEIN by the numbers, UK, October 2026 (PDF)](https://votiakov.com/reports/shein-by-the-numbers-uk-2026-10.pdf).
+**[cartpie.com/datasets/shein](https://cartpie.com/datasets/shein)**. Statistics from the full catalogues:
+[SHEIN research on Cartpie](https://cartpie.com/research).
 
 Also on Hugging Face ([US](https://huggingface.co/datasets/votiakov/shein-us-products-sample), [UK](https://huggingface.co/datasets/votiakov/shein-uk-products-sample), [Germany](https://huggingface.co/datasets/votiakov/shein-de-products-sample), [France](https://huggingface.co/datasets/votiakov/shein-fr-products-sample)) and Kaggle ([US](https://www.kaggle.com/datasets/votiakov/shein-us-products-sample), [UK](https://www.kaggle.com/datasets/votiakov/shein-uk-products-sample), [Germany](https://www.kaggle.com/datasets/votiakov/shein-de-products-sample), [France](https://www.kaggle.com/datasets/votiakov/shein-fr-products-sample)).
+
+Made by [Andrii Votiakov](https://votiakov.com).
 
 ## Files
 
@@ -141,5 +143,5 @@ JOIN 'data/shein_de_sample_10k_2026-11-10.parquet' de USING (product_id);
 ## Terms
 
 Free to use for evaluation, research and journalism, with attribution to
-[votiakov.com/shein-data](https://votiakov.com/shein-data/). Not for resale or redistribution as a dataset.
-For commercial use and the full data, get a licence at [votiakov.com/shein-data](https://votiakov.com/shein-data/).
+Cartpie ([cartpie.com](https://cartpie.com)). Not for resale or redistribution as a dataset.
+For commercial use and the full data, get a licence at [cartpie.com/datasets/shein](https://cartpie.com/datasets/shein).
